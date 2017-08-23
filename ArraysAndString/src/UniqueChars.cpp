@@ -56,14 +56,7 @@ bool checkIfUniqueChars3(string str){
 	std::sort(str.begin(),str.end());
 	for(unsigned int i=0;i<str.length();i++){
 		if( (i != str.length()-1) && str[i] != str[i+1]){
-//          continue
-//			cout<<"i = "<<i<<endl;
-//			cout<<"str[i] = "<<str[i]<<endl;
-//			cout<<"str[i+1] = "<<str[i+1]<<endl;
 		}else if ((i != str.length()-1)){
-//			cout<<"i = "<<i<<endl;
-//			cout<<"str[i] = "<<str[i]<<endl;
-//			cout<<"str[i+1] = "<<str[i+1]<<endl;
 			result = false;
 			break;
 		}
