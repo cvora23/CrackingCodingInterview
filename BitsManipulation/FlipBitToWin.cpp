@@ -11,8 +11,8 @@
 using namespace std;
 
 /*
- * Flip Bit to Win: You have an integer and you can flip exactly one bit from a 13 to a 1.
- * Write code to find the length of the longest sequence of ls you could create.
+ * Flip Bit to Win: You have an integer and you can flip exactly one bit from 0 to 1.
+ * Write code to find the length of the longest sequence of 1s you could create.
  * EXAMPLE
  * Input: 1775 ( or : 11011101111)
  * Output: 8
@@ -20,7 +20,18 @@ using namespace std;
  */
 
 /*
- * Solution 1
+ * Solution 1 - Brute Force
+ */
+
+/*
+ * One approach is to convert an integer into an arry that reflects the lengths of 0s and 1s sequences.
+ * For example, 11011101111 would be (reading from right to left) [Zero 0's, Four 1's, One 0's, Three 1's, One 1's,
+ * 																	Two 1's, Twenty One 0's]
+ * The subscript reflects whether the integer corresponds to a 0s sequence or a 1s sequence, but the actual solution doesn't
+ * need this. It's a strictly alternating sequence, always starting with the 0s sequence.
+ *
+ * Once we have this, we just walk through the array. At each 0s sequence, then we consider merging the adjacent 1s sequences if
+ * the 0s sequence has length 1.
  */
 
 /*

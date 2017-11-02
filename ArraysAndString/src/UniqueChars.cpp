@@ -8,7 +8,6 @@
 #include <map>
 #include <bitset>
 #include <string>         // std::string
-#include <bits/stdc++.h>
 #include <algorithm>
 
 using namespace std;
