@@ -29,7 +29,8 @@ namespace Sol1{
 		/*
 		 * base case
 		 */
-		if(str.length() == 0){
+		if(str.length() == 0)
+		{
 			permutations.push_back("");
 			return permutations;
 		}
@@ -38,8 +39,10 @@ namespace Sol1{
 		string remainder = str.substr(1); // remove the first character
 
 		vector<string> words = getPerms(remainder);
-		for(int i=0;i<words.size();i++){
-			for(int j=0;j<=words[i].length();j++){
+		for(int i=0;i<words.size();i++)
+		{
+			for(int j=0;j<=words[i].length();j++)
+			{
 				string s = insertCharAt(words[i],first,j);
 				permutations.push_back(s);
 			}
@@ -55,7 +58,7 @@ namespace Sol2{
 
 int main(){
 
-	vector<string>permutations = Sol1::getPerms("abcd");
+	vector<string>permutations = Sol1::getPerms("ab");
 	for(int i=0;i<permutations.size();i++){
 		cout<<permutations[i]<<endl;
 	}

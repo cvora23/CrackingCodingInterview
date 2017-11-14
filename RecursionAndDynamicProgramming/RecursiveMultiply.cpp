@@ -13,14 +13,14 @@ using namespace std;
 
 /*
  * Recursive Multiply: Write a recursive function to multiply two positive integers without using the
- * * operator (or / operator). You can use addition, subtraction, and bit shifting,
+ * multiply (*) operator (or / operator). You can use addition, subtraction, and bit shifting,
  * but you should minimize the number of those operations.
  */
 
 /*
  * Let's pause for a moment and think about what it means to do multiplication.
  * We can think about mUltiplying 8x7 as doing 8+8+8+8+8+8+8 (or adding? eight times).
- * We can also think about it as the number of squares in an 8x? grid.
+ * We can also think about it as the number of squares in an 8x7 grid.
  */
 
 

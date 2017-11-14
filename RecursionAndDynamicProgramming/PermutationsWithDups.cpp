@@ -23,12 +23,12 @@ using namespace std;
  * Ideally, we would like to only create the unique permutations, rather than creating every permutation and then ruling out the duplicates.
  * We can start with computing the count of each letter (easy enough to get this-just use a hash table).
  * For a string such as aabbbbc, this would be:
- * a->2 I b->4 I c->l
+ * a->2 , b->4 , c->1
  * Let's imagine generating a permutation of this string (now represented as a hash table).
  * The first choice we make is whether to use an a, b, or c as the first character.
  * After that, we have a subproblem to solve:find all permutations of the remaining characters, and append those to the already picked "prefix:'
  * P(a->2 | b->4 | c->1) = {a + P(a->1 | b->4 | C->1)} + {b + P(a->2 | b->3 | C->1)} + {c + P(a->2 | b->4 | c->0)}
- * P(a->1 | b->4 | C->1) = {a + P(a->6 | b->4 | c->1)} + {b + P(a->1 | b->3 | c->1)} + {c + P(a->1 | b->4 | c->0)}
+ * P(a->1 | b->4 | C->1) = {a + P(a->0 | b->4 | c->1)} + {b + P(a->1 | b->3 | c->1)} + {c + P(a->1 | b->4 | c->0)}
  * P(a->2 | b->3 | c->1) = {a + P(a->1 | b->3 | c->1)} + {b + P(a->2 | b->2 | c->1)} + {c + P(a->2 | b->3 | c->0)}
  * P(a->2 | b->4 | c->0) = {a + P(a->1 | b->4 | c->0)} + {b + P(a->2 | b->3 | c->0)}
  * Eventually, we'll get down to no more characters remaining.

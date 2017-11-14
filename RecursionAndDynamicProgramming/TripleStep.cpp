@@ -16,7 +16,6 @@ using namespace std;
  * Implement a method to count how many possible ways the child can run up the stairs.
  */
 
-
 /*
  * Let's think about this with the following question: What is the very last step that is done?
  * The very last hop the child makes- the one that lands her on the nth step-was either a 3-step hop, a 2-step hop, or a 1-step hop.
@@ -44,6 +43,7 @@ using namespace std;
  * However, it's a lot easier to define it as 1. If you defined it as 0,
  * then you would need some additional base cases (or else you'd just wind up with a series of Os getting added).
  */
+
 int countWays(int n){
 
 	if(n < 0){

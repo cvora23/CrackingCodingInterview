@@ -10,6 +10,13 @@
 
 using namespace std;
 
+/*
+ * Magic Index: A magic index in an array A[1. .. n-1] is defined to be an index such that A[ i] = i.
+ * Given a sorted array of distinct integers, write a method to find a magic index, if one exists, in array A.
+ * FOLLOW UP
+ * What if the values are not distinct?
+ */
+
 namespace Sol1{
 
 	int magicSlow(vector<int>vec){
@@ -33,8 +40,14 @@ namespace Sol1{
  * and determining if k would land on the left or the right side of x.
  * Building off this approach, is there a way that we can look at the middle element to
  * determine where a magic index might be? Let's look at a sample array:
- * Why couldn't the magic index be on the left side? Observe that when we move from i to i -1,
- * the value at this index must decrease by at least 1,
+ *
+ *  Index 0    1   2   3   4   5   6   7   8   9    10
+ *  Value -40 -20 -1   1   2   3   5   7   9   12   13
+ *
+ *  When we look at the middle element A[5] = 3, we know that the magic index must be on the right
+ *  side, since A[mid] < mid.
+ *
+ * Why couldn't the magic index be on the left side? Observe that when we move from i to i -1, the value at this index must decrease by at least 1,
  * if not more (since the array is sorted and all the elements are distinct).
  * So, if the middle element is already too small to be a magic index, then when we move to the left,
  * subtracting k indexes and (at least) k values, all subsequent elements will also be too small.
@@ -77,7 +90,7 @@ namespace Sol2{
  * Could it be anywhere on the left side? Not exactly. Since A[5] = 3, we know that A[ 4] couldn't be a magic index.
  * A[4] would need to be 4 to be the magic index, but A[4] must be less than or equal to A[5].
  * In fact, when we see that A[5] = 3, we'll need to recursively search the right side as before.
- * But, to search the left side, we can skip a bunch of elements and only recursively search elements A[e] through A[3].
+ * But, to search the left side, we can skip a bunch of elements and only recursively search elements A[0] through A[3].
  * A[ 3] is the first element that could be a magic index.
  * The general pattern is that we compare midIndex and midValue for equality first.
  * Then, if they are not equal, we recursively search the left and right sides as follows:
